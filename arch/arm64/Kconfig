@@ -1231,8 +1231,6 @@ config BUILD_ARM64_APPENDED_DTB_IMAGE_NAMES
 	  Space separated list of names of dtbs to append when
 	  building a concatenated Image.gz-dtb.
 
-<<<<<<< HEAD
-=======
 config BUILD_ARM64_DTB_OVERLAY_IMAGE
 	bool "Build a device tree overlay image"
 	depends on OF
@@ -1242,7 +1240,6 @@ config BUILD_ARM64_DTB_OVERLAY_IMAGE
 	  Overlay DT contains device-specific configurations.
 	  Please be aware that bootloader supports DT merging.
 
->>>>>>> 6ab0d08f4db6 ([SQUASH] treewide: Add back drvgen and dtbo building)
 config BUILD_ARM64_DTB_OVERLAY_IMAGE_NAMES
 	string "Default dtb overlay names"
 	depends on BUILD_ARM64_DTB_OVERLAY_IMAGE
