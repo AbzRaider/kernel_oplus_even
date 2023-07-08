@@ -40,16 +40,18 @@ extern int mtk_nanohub_req_send(union SCP_SENSOR_HUB_DATA *data);
 extern int mtk_nanohub_cfg_to_hub(uint8_t sensor_id, uint8_t *data, uint8_t count);
 #endif
 
-int register_lcdinfo_notifier(struct notifier_block *nb);
-int unregister_lcdinfo_notifier(struct notifier_block *nb);
+extern int register_lcdinfo_notifier(struct notifier_block *nb) __attribute__((weak));
+extern int unregister_lcdinfo_notifier(struct notifier_block *nb) __attribute__((weak));
 
-__attribute__((weak)) int register_lcdinfo_notifier() {
-	return -1;
-}
-
-__attribute__((weak)) int unregister_lcdinfo_notifier() {
-	return -1;
-}
+int register_lcdinfo_notifier(struct notifier_block *nb) {
+	    // function body
+	        return -1;
+	         }
+	   
+int unregister_lcdinfo_notifier(struct notifier_block *nb) {
+	             // function body
+	       return -1;
+	             }
 
 enum {
 	SAMSUNG = 1,
@@ -174,7 +176,7 @@ typedef struct {
     unsigned char       Sensor[256];
 } sensor_config_info_t;
 
-__attribute__((weak)) unsigned int get_project() {
+__attribute__((weak)) unsigned int get_project(void) {
 	return -1;
 }
 
@@ -1581,7 +1583,7 @@ static const struct file_operations Sensor_info_fops = {
 	.release = single_release,
 };
 
-static int oplus_sensor_feature_init()
+static int oplus_sensor_feature_init(void)
 {
 	struct proc_dir_entry *p_entry;
 	static struct proc_dir_entry *oplus_sensor = NULL;
