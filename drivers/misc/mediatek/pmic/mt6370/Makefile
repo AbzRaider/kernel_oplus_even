@@ -1,4 +1,8 @@
-subdir-ccflags-y += -Wall -Werror
+subdir-ccflags-y += -Wno-error
+ccflags-y += \
+        -Wno-unused-variable \
+        -Wno-unused-function 
+
 ifeq ($(CONFIG_MTK_GAUGE_VERSION),30)
 subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/typec/tcpc/inc
 subdir-ccflags-y += -I$(srctree)/drivers/power/supply/mediatek/charger

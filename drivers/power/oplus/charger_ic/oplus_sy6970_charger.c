@@ -1971,7 +1971,7 @@ int oplus_bq2589x_set_ichg(int cur)
 	u32 uA = cur*1000;
 	u32 temp_uA;
 	int ret = 0;
-	static old_cur = 0;
+	static int old_cur = 0;
 
 	if (g_oplus_chip->mmi_chg == 0)
 		cur = 100;
@@ -2181,7 +2181,7 @@ aicl_end:
 	return rc;
 }
 
-void oplus_bq2589x_safe_calling_status_check()
+void oplus_bq2589x_safe_calling_status_check(void)
 {
 	if(g_oplus_chip == NULL) {
 		return;
@@ -2203,7 +2203,7 @@ void oplus_bq2589x_safe_calling_status_check()
 	}
 }
 
-void oplus_bq2589x_safe_camera_status_check()
+void oplus_bq2589x_safe_camera_status_check(void)
 {
 	if(g_oplus_chip == NULL) {
 		return;
@@ -2243,7 +2243,7 @@ void oplus_bq2589x_safe_camera_status_check()
 	}
 }
 
-void oplus_bq2589x_cool_down_status_check()
+void oplus_bq2589x_cool_down_status_check(void)
 {
 	static int old_cool_flag = false;
 	if (g_oplus_chip == NULL) {
@@ -2290,7 +2290,7 @@ void oplus_bq2589x_cool_down_status_check()
 	}
 }
 
-void oplus_bq2589x_batt_temp_status_check()
+void oplus_bq2589x_batt_temp_status_check(void)
 {
 	static int batt_temp_flag = false;
 	if (g_oplus_chip == NULL) {
